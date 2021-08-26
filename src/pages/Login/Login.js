@@ -15,7 +15,7 @@ function Login() {
 
     checkTextInput();
     if (checkTextInput() === true) {
-      Axios.post("http://localhost:3001/user/login", {
+      Axios.post("https://social-media-image-backend.herokuapp.com//user/login", {
         username: username,
         password: password,
       }).then((response) => {

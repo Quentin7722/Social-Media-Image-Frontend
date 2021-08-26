@@ -19,7 +19,7 @@ function Moderateur() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    Axios.get(`http://localhost:3001/thread`, {
+    Axios.get(`https://social-media-image-backend.herokuapp.com//thread`, {
       headers: { 'Authorization': `token ${token}` }
     }).then((response) => {
       console.log(response)
@@ -28,7 +28,7 @@ function Moderateur() {
   }, []);
 
   const deleteThread = (idthread, image) => {
-    Axios.delete("http://localhost:3001/thread/delete", {
+    Axios.delete("https://social-media-image-backend.herokuapp.com//thread/delete", {
       headers: { 'Authorization': `bearer ${token}` },
       data: {
         idthread: idthread,
@@ -42,7 +42,7 @@ function Moderateur() {
 
   const getComment = (idthread) => {
     if(ariaExpanded === "true"){setariaExpanded("false")}else{setariaExpanded("true")}
-    Axios.post("http://localhost:3001/thread/getComments", {
+    Axios.post("https://social-media-image-backend.herokuapp.com//thread/getComments", {
       idthread: idthread,
     }, {
       headers: {
@@ -54,7 +54,7 @@ function Moderateur() {
   };
 
   const deleteComment = (idcomment, threadComment) => {
-    Axios.delete("http://localhost:3001/thread/deleteComment", {
+    Axios.delete("https://social-media-image-backend.herokuapp.com//thread/deleteComment", {
       headers: { 'Authorization': `bearer ${token}` },
       data: {
         idcomments: idcomment,

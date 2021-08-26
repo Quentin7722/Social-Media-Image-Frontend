@@ -15,7 +15,7 @@ function Register() {
     checkTextInput();
     console.log(checkTextInput());
     if (checkTextInput() === true) {
-      Axios.post("http://localhost:3001/user/register", {
+      Axios.post("https://social-media-image-backend.herokuapp.com//user/register", {
         username: username,
         password: password,
       }).then((response) => {
