@@ -23,7 +23,7 @@ function Profile() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    Axios.get(`https://social-media-image-backend.herokuapp.com//thread/byUser/${localStorage.getItem("username")}`, {
+    Axios.get(`https://social-media-image-backend.herokuapp.com/thread/byUser/${localStorage.getItem("username")}`, {
       headers: { 'Authorization': `bearer ${token}` }
     }).then((response) => {
       setYourUploads(response.data[0]);
@@ -46,7 +46,7 @@ function Profile() {
         formData
       ).then((response) => {
         const fileName = response.data.public_id;
-        Axios.post("https://social-media-image-backend.herokuapp.com//user/avatar", {
+        Axios.post("https://social-media-image-backend.herokuapp.com/user/avatar", {
           image: fileName,
         }, {
           headers: {
@@ -61,7 +61,7 @@ function Profile() {
 
 
   const deleteThread = (image, idthread) => {
-    Axios.delete("https://social-media-image-backend.herokuapp.com//thread/delete", {
+    Axios.delete("https://social-media-image-backend.herokuapp.com/thread/delete", {
       headers: { 'Authorization': `bearer ${token}` },
       data: {
         idthread: idthread,
@@ -74,7 +74,7 @@ function Profile() {
   };
 
   const deleteProfile = () => {
-    Axios.delete("https://social-media-image-backend.herokuapp.com//user/delete", {
+    Axios.delete("https://social-media-image-backend.herokuapp.com/user/delete", {
       headers: { 'Authorization': `bearer ${token}` },
     }).then((response) => {
       localStorage.removeItem("role");
@@ -88,7 +88,7 @@ function Profile() {
   const modify = (idthread) => {
     checkTextInput();
     if (checkTextInput() === true) {
-      Axios.post("https://social-media-image-backend.herokuapp.com//thread/modify", {
+      Axios.post("https://social-media-image-backend.herokuapp.com/thread/modify", {
         title: title,
         description: description,
         idthread: idthread,

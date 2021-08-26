@@ -26,7 +26,7 @@ function Upload() {
           formData
         ).then((response) => {
           const fileName = response.data.public_id;
-          Axios.post("https://social-media-image-backend.herokuapp.com//thread", {
+          Axios.post("https://social-media-image-backend.herokuapp.comthread", {
             title: title,
             description: description,
             image: fileName,
@@ -39,7 +39,7 @@ function Upload() {
           });
         });
       }else{
-        Axios.post("https://social-media-image-backend.herokuapp.com//thread", {
+        Axios.post("https://social-media-image-backend.herokuapp.comthread", {
           title: title,
           description: description,
           author: localStorage.getItem("username")}, {
