@@ -17,14 +17,14 @@ function Home(props) {
   const toggleComments = (idthread) => { setShowId(showId => showId === idthread ? null : idthread); };
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/thread").then((response) => {
+    Axios.get("https://social-media-image-backend.herokuapp.com/thread").then((response) => {
       const order = response.data.reverse()
       setUploads(order);
     });
   }, []);
 
   const likePost = (idthread) => {
-    Axios.post("http://localhost:3001/thread/like", {
+    Axios.post("https://social-media-image-backend.herokuapp.com/thread/like", {
       idthread: idthread,
     }, {
       headers: {
@@ -38,7 +38,7 @@ function Home(props) {
 
   const comment = (idthread) => {
     if (checkTextInput() === true) {
-      Axios.post("http://localhost:3001/thread/comment", {
+      Axios.post("https://social-media-image-backend.herokuapp.com/thread/comment", {
         idthread: idthread,
         commentaire: commentaire,
       }, {
@@ -56,7 +56,7 @@ function Home(props) {
 
   const getComment = (idthread) => {
     if(ariaExpanded === "true"){setariaExpanded("false")}else{setariaExpanded("true")}
-    Axios.post("http://localhost:3001/thread/getComments", {
+    Axios.post("https://social-media-image-backend.herokuapp.com/thread/getComments", {
       idthread: idthread,
     }, {
       headers: {
